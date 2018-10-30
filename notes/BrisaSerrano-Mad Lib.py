@@ -1,0 +1,10 @@
+adjective = input("Type in an adjective")
+noun = input("Pick a noun")
+print("My favorite %s  in my family is my mom. Her name is %s. " %(adjective, noun))
+noun = input("Pick a noun")
+
+print("She is from ____________ and she is American. My mom is ____________ years old.")
+print("She is clean and she has ________ eyes. She likes chocolates, __________, and walking.")
+print("She also likes to watch movies, play with _______, and hangout with me and my __________.")
+print("We have _________ in common drinking tea. I chose this _________ because she is my__________.")
+print("She is always there for me, and she is my __________.")
