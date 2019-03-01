@@ -31,9 +31,23 @@ class Viper(Car):
         super(Viper, self).__init__("Viper")
 
 
+class Tesla(Car):
+    def __init__(self):
+        super(Tesla, self).__init__("Tesla")
+
+    def start_engine(self):
+        self.engine_status = True
+        print("You push the button and the engine starts")
+
+
 brisa_car = Viper()
 brisa_car.start_engine()
 brisa_car.move_forward()
 brisa_car.turn_left()
 brisa_car.move_forward()
 brisa_car.turn_orr()
+print()
+
+bethany_car = Tesla()
+bethany_car.start_engine()
+bethany_car.move_forward()
