@@ -9,6 +9,7 @@ class Room(object):
         self.down = down
         self.deception = deception
 
+
 class Player(object):
     def __init__(self, starting_location):
         self.health = 100
