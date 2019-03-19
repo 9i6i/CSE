@@ -26,7 +26,7 @@ world_map = {
         'NAME': "The Underground.",
         'DESCRIPTION': "You landed on a bed of flowers.",
         'PATHS': {
-            'UP': 'Mt_Abbot',
+            'DOWN': 'Mt_Abbot',
             'WEST': 'Snowdin'
         }
     },
@@ -34,8 +34,8 @@ world_map = {
         'NAME': "Snowdin",
         'DESCRIPTION': "There's snow?",
         'PATHS': {
-            'UP': 'The_Ruins',
-            'EAST': 'Water_Fall'
+            'EAST': 'The_Ruins',
+            'DOWN': 'Water_Fall'
         }
     },
     'Water_Fall': {
@@ -43,16 +43,28 @@ world_map = {
         'DESCRIPTION': "There are blue flowers that repeat what you say????",
         'PATHS': {
             'UP': 'Snowdin',
-            'NORTH': 'HOTLAND'
+            'EAST': 'HOTLAND'
         }
     },
     'HOTLAND': {
         'NAME': "Hotland",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "everything is hot oh well",
         'PATHS': {
-            '': '',
-            '': ''
+            'WEST': 'Water_Fall',
+            'NORTH': 'THE_CORE'
         }
+    },
+    'THE_CORE': {
+        'NAME': "the core",
+        'DESCRIPTION': "you see a lab and you wonder how that possible then you"
+                       " realize there snow and lava here then you stop caring",
+        'PATHS': {
+            'SOUTH': 'HOTLAND',
+            'EAST': 'NEW_HOME'
+        }
+    },
+    'NEW_HOME': {
+        'NAME': "new home"
     }
 }
 
@@ -64,6 +76,7 @@ playing = True
 
 while playing:
     print(current_node['NAME'])
+    print(current_node['DESCRIPTION'])
 
     command = input(">_")
     if command.lower() in ['q', 'quit', 'exit']:

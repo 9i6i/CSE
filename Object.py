@@ -50,7 +50,7 @@ playing = True
 
 while playing:
     print(player.current_location.name)
-    print(player.current_location.deception)
+    print(player.current_location.description)
 
     command = input(">_")
     if command.lower() in ['q', 'quit', 'exit']:

@@ -1,3 +1,4 @@
+import random
 """
 print("Hello World")
 
@@ -60,10 +61,10 @@ This is a multi-line comment
 anything in between them is automatically commented out.
 """
 
-
-
 # Defining Functions
-def say_it () :
+
+
+def say_it():
     print("Hello World ! ")
 
 
@@ -72,9 +73,10 @@ say_it()
 say_it()
 
 # f (x) = 2x + 3
-def f(x) :
-    print(2*x + 3)
 
+
+def f(x):
+    print(2*x + 3)
 
 
 f(1)
@@ -82,22 +84,22 @@ f(5)
 f(5000)
 
 
-def distance (x1, y1, x2, y2) :
+def distance(x1, y1, x2, y2):
     dist = ((x2-x1)**2 + (y2-y1)**2)**(1/2)
     print(dist)
 
 
-distance (0, 0, 3, 4)
-distance (0, 0, 5, 12)
+distance(0, 0, 3, 4)
+distance(0, 0, 5, 12)
 
 # For loops
 for i in (1, 2, 3):
     say_it()
-for i in range (5):  # Range (5) gives the numbers 0-4
+for i in range(5):  # Range (5) gives the numbers 0-4
     f(i)
 
 
-for i in range (5):
+for i in range(5):
     print(i**2)
 
 # While loops
@@ -119,13 +121,14 @@ sunny = False
 if sunny:
     print("Go outside")
 
+
 def grade_calc(percentage):
-    if percentage >= 90 :
+    if percentage >= 90:
         return "A"
     elif percentage >= 80:
         return "B"
     elif percentage >= 70:
-        return  "C"
+        return "C"
     elif percentage >= 60:
         return "D"
     else:
@@ -135,6 +138,4 @@ def grade_calc(percentage):
 your_grade = grade_calc(82)
 print(your_grade)
 
-# Random numbers
-import random    # this should be on line 1
-print(random.randint (0, 100))
+print(random.randint(0, 100))
