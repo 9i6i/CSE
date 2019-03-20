@@ -1,5 +1,5 @@
 class Room(object):
-    def __init__(self, deception="INSERT DESCRIPTION HERE", name=None, north=None, south=None,
+    def __init__(self, description="INSERT DESCRIPTION HERE", name=None, north=None, south=None,
                  east=None, west=None, up=None, down=None):
         self.name = name
         self.north = north
@@ -8,7 +8,7 @@ class Room(object):
         self.west = west
         self.up = up
         self.down = down
-        self.deception = deception
+        self.description = description
 
 
 class Player(object):
@@ -152,25 +152,27 @@ class MonsterCandy(Item):
         self.level = 0.5
 
 
-R19A = Room
-parking_lot = Room
-Mt_Abbot = Room
-The_Ruins = Room
-Snowdin = Room
-Water_Fall = Room
-Hotland = Room
-The_core = Room
-New_home = Room
+R19A = Room("This is a room.", "Mr.Wiebe's room")
+parking_lot = Room("This is where you can park your car", "This is the parking lot")
+Mt_Abbot = Room("This is a mountain where monsters live", "This Mt. Abbot")
+The_Ruins = Room("You fell into the hole now you are in a room that has golden flowers???",
+                 "You are now in the underground")
+Snowdin = Room("There is snow in this room??", "You just past the ruins now you are in snowdin")
+Water_Fall = Room("There are blue flowers that repeat what you say", " You are now in Waterfall")
+Hotland = Room()
+The_core = Room()
+New_home = Room()
+The_Barrier = Room()
 
 R19A.north = parking_lot
-parking_lot.south = R19A
-Mt_Abbot.up
-The_Ruins.up
-Snowdin.west
-Water_Fall.down
-Hotland.east
-The_core.north
-New_home.east
+parking_lot.south = Mt_Abbot
+Mt_Abbot.up = The_Ruins
+The_Ruins.up = Snowdin
+Snowdin.west = Water_Fall
+Water_Fall.down = Hotland
+Hotland.east = The_core
+The_core.north = New_home
+New_home.east = The_Barrier
 
 
 player = Player(R19A)
