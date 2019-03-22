@@ -64,7 +64,8 @@ world_map = {
         }
     },
     'NEW_HOME': {
-        'NAME': "new home"
+        'NAME': "new home",
+        'DESCRIPTION': "you look around and all you see is gold"
     }
 }
 

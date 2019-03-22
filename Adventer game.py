@@ -33,76 +33,6 @@ class Player(object):
         return getattr(self.current_location, direction)
 
 
-world_map = {
-    'R19A': {
-        'NAME': "Mr. Wiebe's room",
-        'DESCRIPTION': "This is the room that you are in.",
-        'PATHS': {
-            'NORTH': "PARKING_LOT"
-        }
-    },
-    'PARKING_LOT': {
-        'NAME': "A Parking Lot",
-        'DESCRIPTION': "There are a few cars parked here.",
-        'PATHS': {
-            'SOUTH': 'R19A',
-            'UP': 'Mt_Abbot'
-        }
-    },
-    'Mt_Abbot': {
-        'NAME': "Mt.Abbot",
-        'DESCRIPTION': "There is a dark hole here.",
-        'PATHS': {
-            'DOWN': 'PARKING_LOT',
-            'UP': 'The_Ruins'
-        }
-    },
-    'The_Ruins': {
-        'NAME': "The Underground.",
-        'DESCRIPTION': "You landed on a bed of flowers.",
-        'PATHS': {
-            'DOWN': 'Mt_Abbot',
-            'WEST': 'Snowdin'
-        }
-    },
-    'Snowdin': {
-        'NAME': "Snowdin",
-        'DESCRIPTION': "There's snow?",
-        'PATHS': {
-            'EAST': 'The_Ruins',
-            'DOWN': 'Water_Fall'
-        }
-    },
-    'Water_Fall': {
-        'NAME': "Waterfall",
-        'DESCRIPTION': "There are blue flowers that repeat what you say????",
-        'PATHS': {
-            'UP': 'Snowdin',
-            'EAST': 'Hotland'
-        }
-    },
-    'Hotland': {
-        'NAME': "Hotland",
-        'DESCRIPTION': "everything is hot oh well",
-        'PATHS': {
-            'WEST': 'Water_Fall',
-            'NORTH': 'The_Core'
-        }
-    },
-    'The_Core': {
-        'NAME': "the core",
-        'DESCRIPTION': "you see a lab and you wonder how that possible then you"
-                       " realize there snow and lava here then you stop caring",
-        'PATHS': {
-            'SOUTH': 'Hotland',
-            'EAST': 'New_Home'
-        }
-    },
-    'New_Home': {
-        'NAME': "new home"
-    }
-}
-
 
 class Item(object):
     def __init__(self, name):
@@ -162,6 +92,7 @@ Water_Fall = Room("There are blue flowers that repeat what you say", " You are n
 Hotland = Room()
 The_core = Room()
 New_home = Room()
+Judgement_hall = Room ()
 The_Barrier = Room()
 
 R19A.north = parking_lot
