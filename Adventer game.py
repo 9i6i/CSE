@@ -1,6 +1,6 @@
 class Room(object):
     def __init__(self, description="INSERT DESCRIPTION HERE", name=None, north=None, south=None,
-                 east=None, west=None, up=None, down=None):
+                 east=None, west=None, up=None, down=None, items=None):
         self.name = name
         self.north = north
         self.south = south
@@ -9,29 +9,7 @@ class Room(object):
         self.up = up
         self.down = down
         self.description = description
-
-
-class Player(object):
-    def __init__(self, starting_location):
-        self.health = 100
-        self.inventory = []
-        self.current_location = starting_location
-
-    def move(self, new_location):
-        """
-
-        :param new_location: The room object that we move to
-        """
-        self.current_location = new_location
-
-    def find_room(self, direction):
-        """
-
-        :param direction: direction: A String (all lowercase), with a cardinal direction
-        :return: A room object if it exists, None if it does not
-        """
-        return getattr(self.current_location, direction)
-
+        self.items = items
 
 
 class Item(object):
@@ -82,6 +60,30 @@ class MonsterCandy(Item):
         self.level = 0.5
 
 
+class Player(object):
+    def __init__(self, starting_location):
+        self.health = 100
+        self.inventory = []
+        self.current_location = starting_location
+
+    def move(self, new_location):
+        """
+
+        :param new_location: The room object that we move to
+        """
+        self.current_location = new_location
+
+    def find_room(self, direction):
+        """
+
+        :param direction: direction: A String (all lowercase), with a cardinal direction
+        :return: A room object if it exists, None if it does not
+        """
+        return getattr(self.current_location, direction)
+
+
+monstercandy = MonsterCandy("Monster Candy")
+
 R19A = Room("This is a room.", "Mr.Wiebe's room")
 parking_lot = Room("This is where you can park your car", "This is the parking lot")
 Mt_Abbot = Room("This is a mountain where monsters live", "This Mt. Abbot")
@@ -89,11 +91,14 @@ The_Ruins = Room("You fell into the hole now you are in a room that has golden f
                  "You are now in the underground")
 Snowdin = Room("There is snow in this room??", "You just past the ruins now you are in snowdin")
 Water_Fall = Room("There are blue flowers that repeat what you say", " You are now in Waterfall")
-Hotland = Room()
-The_core = Room()
-New_home = Room()
-Judgement_hall = Room ()
+Hotland = Room("You look around and you see lava and you question how is this possible then "
+               "stop caring and you move on to the next area")
+The_core = Room("")
+New_home = Room("")
+Judgement_hall = Room()
 The_Barrier = Room()
+
+R19A.items = monstercandy
 
 R19A.north = parking_lot
 parking_lot.south = Mt_Abbot
@@ -103,7 +108,8 @@ Snowdin.west = Water_Fall
 Water_Fall.down = Hotland
 Hotland.east = The_core
 The_core.north = New_home
-New_home.east = The_Barrier
+New_home.east = Judgement_hall
+Judgement_hall.west = The_Barrier
 
 
 player = Player(R19A)
@@ -114,6 +120,8 @@ playing = True
 while playing:
     print(player.current_location.name)
     print(player.current_location.description)
+    if player.current_location.items is not None:
+        print("There is a %s here" % player.current_location.items.name)
 
     command = input(">_")
     if command.lower() in ['q', 'quit', 'exit']:
