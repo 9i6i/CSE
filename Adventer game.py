@@ -95,9 +95,15 @@ Water_Fall = Room("There are blue flowers that repeat what you say", " You are n
 Hotland = Room("You look around and you see lava and you question how is this possible then "
                "stop caring and you move on to the next area", "You are in hotland")
 The_core = Room("There are wired everywhere you see you wonder what this place use to be", "You are in the core now")
-New_home = Room("You look around there building everywhere some nice some doesn't anyway you move on")
-Judgement_hall = Room("There windows everywhere and it looked very nice")
-The_Barrier = Room()
+New_home = Room("You look around there building everywhere some nice some doesn't"
+                " anyway you move on", "You are in new home")
+Judgement_hall = Room("There windows everywhere and it looked very nice", "Judgement hall")
+Throne_room = Room("you walk pass the hall and you see 2 garden bed of "
+                   "sunflowers and a big Chair in front", "Your in the throne "
+                                                          "room, you are also almost to the barrier")
+The_Barrier = Room("You have reached the barrier this is where "
+                   "the humans trapped the monsters"
+                   " years ago. you want to set them free?!?!?!?!?!", "The barrier where it all ends")
 
 R19A.items = monstercandy
 The_Ruins.items = knife
