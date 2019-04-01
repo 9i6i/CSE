@@ -29,6 +29,11 @@ class Armor(Item):
         self.armor_amt = armor_amt
 
 
+class Inventory(object):
+    def __init__(self, items=[]):
+        self.items = items
+
+
 class Food(Item):
     def __init__(self, name, heath):
         super(Food, self).__init__(name)
@@ -91,10 +96,11 @@ Mt_Abbot = Room("This is a mountain where monsters live", "This Mt. Abbot")
 The_Ruins = Room("You fell into the hole now you are in a room that has golden flowers???",
                  "You are now in the underground")
 Toriel_house = Room("as you were walking in the ruins you see a small house and the door was open so you walk"
-                    "in", "Toriel")
+                    "in", "Toriel's house")
 Snowdin = Room("There is snow in this room??", "You just past the ruins now you are in snowdin")
 Sans_and_Papy_house = Room("As you walked through Snowdin you spotted a house with two mailbox and both of th ")
 Water_Fall = Room("There are blue flowers that repeat what you say", " You are now in Waterfall")
+True_lab = Room("You see ghost like monsters that creep you out", "This is true lab")
 Hotland = Room("You look around and you see lava and you question how is this possible then "
                "stop caring and you move on to the next area", "You are in hotland")
 The_core = Room("There are wired everywhere you see you wonder"
@@ -102,8 +108,7 @@ The_core = Room("There are wired everywhere you see you wonder"
 New_home = Room("You look around there building everywhere some nice some doesn't"
                 " anyway you move on", "You are in new home")
 Judgement_hall = Room("There windows everywhere and it looked very nice", "Judgement hall")
-Throne_room = Room("you walk pass the hall and you see 2 garden bed of "
-                   "sunflowers and a big "
+Throne_room = Room("you walk pass the hall and you see 2 garden bed of sunflowers and a big "
                    "Chair in front", "Your in the throne room, you are also almost to the barrier")
 The_Barrier = Room("You have reached the barrier this is where "
                    "the humans trapped the monsters"
@@ -147,5 +152,19 @@ while playing:
             player.move(next_room)
         except KeyError:
             print("I can't go that way.")
+    elif "pick up " in command:
+        item_name = command[8:]
+
+        found_item = None
+        for item in player.current_location.items:
+            if item_name == item_name:
+                found_item = item
+
+        if found_item is None:
+            print("i don't see one~~~")
+        else:
+            player.inventory.append(found_item)
+            player.current_location.items.remove(found_item)
+            print("grab %s" % item_name)
     else:
         print("Command not recognized.")
