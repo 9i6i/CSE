@@ -1,8 +1,8 @@
 import random
-current_money = 666
+current_money = 6666666666666666666
 playing = True
 total_roles = 0
-top_money = 666
+top_money = 6666666666666666666
 top_roles = 0
 
 while current_money > 0 and playing:
