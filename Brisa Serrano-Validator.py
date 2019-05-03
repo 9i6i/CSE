@@ -6,10 +6,6 @@ def reverse_it(string):
     return string
 
 
-def reverse_it(string):
-    return string[::-3]
-
-
 print(reverse_it(test_num))
 
 
