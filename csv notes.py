@@ -15,7 +15,7 @@ def divisible_by_three(num: str):
 
 
 def divisible_by_2(num: str):
-    first_num = int(num[0])
+    first_num = int(num[0])  # This is the first number
     if first_num % 2 == 0:
         return True
     return False
@@ -63,13 +63,6 @@ def is_second_num_even(num: str):
 # print("OK")
 
 
-def reverse_it(string):
-    return string[::-1]
-
-
-print(reverse_it("dlroW olleH"))
-
-
 with open("Book1.csv", 'r') as old_csv:
     with open("MyNewFile.csv", 'w', newline='') as new_csv:
         print("Writing file...   ")
@@ -81,4 +74,4 @@ with open("Book1.csv", 'r') as old_csv:
                 writer.writerow(row)
             # print(int(old_number) + 1)
             # print(old_number)
-print("Done")
+print("OK")
