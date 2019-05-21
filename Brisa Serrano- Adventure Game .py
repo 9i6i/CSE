@@ -2,12 +2,12 @@ class Room(object):
     def __init__(self, description="INSERT DESCRIPTION HERE", name=None, north=None, south=None,
                  east=None, west=None, up=None, down=None, items=None):
         self.name = name
-        self.n = north
-        self.s = south
-        self.e = east
-        self.w = west
-        self.u = up
-        self.d = down
+        self.north = north
+        self.south = south
+        self.east = east
+        self.west = west
+        self.up = up
+        self.down = down
         self.description = description
         self.items = items
 
@@ -89,21 +89,22 @@ class Player(object):
 
 monstercandy = MonsterCandy("Monster Candy")
 knife = Knife("Le knife")
-Phone = Phone("A Phone")
+Phone = Phone("Phone")
 
 R19A = Room("This is a room.", "Mr.Wiebe's room")
 parking_lot = Room("This is where you can park your car", "This is the parking lot")
 Mt_Abbot = Room("This is a mountain where monsters live", "This Mt. Abbot")
 The_Ruins = Room("You fell into the hole now you are in a room that has golden flowers???",
                  "You are now in the underground")
-Toriel_house = Room("as you were walking in the ruins you see a small house and the door was open so you walk"
+Toriel_house = Room("as you were walking in the ruins you see a small house and the door was open so you walk "
                     "in", "Toriel's house")
 Snowdin = Room("There is snow in this room??", "You just past the ruins now you are in snowdin")
 Sans_and_Papy_house = Room("As you walked through Snowdin you spotted a house with two"
                            " mailbox and both of them have a name on both sans and "
                            "papyrus", "you are in front of a monster house who have a lab in the back")
 Water_Fall = Room("There are blue flowers that repeat what you say", " You are now in Waterfall")
-Gaster_door = Room("there is a weird door in the middle of waterfall wall you stared at it for a good 20 second "
+Gaster_door = Room("there is a weird door in the middle of waterfall "
+                   "wall you stared at it for a good 20 second "
                    "and it disappear", "Le gasters door")
 Hotland = Room("You look around and you see lava and you question how is this possible then "
                "stop caring and you move on to the next area", "You are in hotland")
@@ -115,9 +116,11 @@ New_home = Room("You look around there building everywhere some nice some doesn'
 Judgement_hall = Room("There windows everywhere and it looked very nice", "Judgement hall")
 Throne_room = Room("you walk pass the hall and you see 2 garden bed of sunflowers and a big "
                    "Chair in front", "Your in the throne room, you are also almost to the barrier")
-The_Barrier = Room("You have reached the barrier this is where "
-                   "the humans trapped the monsters"
-                   " years ago. you want to set them free?!?!?!?!?!", "The barrier where it all ends")
+The_Barrier = Room("You have reached the barrier this is where the humans trapped the monsters"
+                   " years ago. You want to set them free?!?!?!?!?!", "The barrier where it all ends")
+The_Surface = Room("You have broken the Barrier now all the monsters "
+                   "are free and abel to live with the "
+                   "humans oh so they thought.", "The Surface.Is this the end?")
 
 R19A.items = monstercandy
 parking_lot.items = Phone
@@ -139,7 +142,7 @@ The_core.n = New_home
 New_home.e = Judgement_hall
 Judgement_hall.w = Throne_room
 Throne_room.w = The_Barrier
-The_Barrier.e = Throne_room
+The_Barrier.u = The_Surface
 
 player = Player(R19A)
 
@@ -171,9 +174,10 @@ while playing:
             found_item = player.current_location.items
 
         if found_item is None:
-            print("i don't see one~~~")
+            print("i don't see anything in here.")
         else:
             player.inventory.append(found_item)
-            print("grab %s" % item_name)
+            print("grabs %s" % item_name)
+            player.current_location.items = None
     else:
         print("Command not recognized.")
